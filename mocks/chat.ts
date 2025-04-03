@@ -1,17 +1,5 @@
 import { User } from "@/types/user";
-
-export type Message = {
-  id: string;
-  content: string;
-  timestamp: Date;
-  sender: User;
-};
-
-export type Chat = {
-  id: string;
-  participants: User[];
-  messages: Message[];
-};
+import { Chat } from "@/types/chat";
 
 const user1: User = {
   id: "1",
