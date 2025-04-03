@@ -20,7 +20,7 @@ export default function Home() {
     <SidebarProvider>
       <div className="font-[family-name:var(--font-geist-sans)] w-full">
         <AppSidebar />
-        <div className="flex bg-stone-100 ml-64 p-10 flex-col gap-4">
+        <div className="flex ml-64 p-10 flex-col gap-4">
           <div className="grid grid-cols-4 gap-8 w-full">
             <div className="col-span-1 sticky top-0 flex flex-col gap-4">
               <Card>

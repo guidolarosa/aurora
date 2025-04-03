@@ -26,7 +26,8 @@ const VotePage = () => {
     <SidebarProvider>
       <div className="font-[family-name:var(--font-geist-sans)] w-full">
         <AppSidebar />
-        <div className="flex bg-stone-100 ml-64 p-10 flex-col gap-4 h-screen">
+        <div className="flex  ml-64 p-10 flex-col gap-4 h-screen">
+        <h1 className="text-2xl font-bold">Votaciones</h1>
           <div className="grid grid-cols-4 w-full h-full gap-4">
             {proposalData.map((proposal) => (
               <Card className="h-fit" key={proposal.id}>

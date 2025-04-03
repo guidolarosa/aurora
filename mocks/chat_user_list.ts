@@ -5,7 +5,7 @@ const chatUserList = [
     lastMessage: "¿Viste el último documento que compartí?",
     lastMessageDate: "2024-02-15",
     unreadMessages: 3,
-    image: "https://i.pravatar.cc/150",
+    image: "https://i.pravatar.cc/150?img=1",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const chatUserList = [
     lastMessage: "Necesito tu opinión sobre el proyecto",
     lastMessageDate: "2024-02-14",
     unreadMessages: 1,
-    image: "https://i.pravatar.cc/150",
+    image: "https://i.pravatar.cc/150?img=2",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const chatUserList = [
     lastMessage: "¿Nos vemos en la reunión de mañana?",
     lastMessageDate: "2024-02-13",
     unreadMessages: 5,
-    image: "https://i.pravatar.cc/150",
+    image: "https://i.pravatar.cc/150?img=3",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const chatUserList = [
     lastMessage: "Gracias por la información",
     lastMessageDate: "2024-02-12",
     unreadMessages: 0,
-    image: "https://i.pravatar.cc/150",
+    image: "https://i.pravatar.cc/150?img=4",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const chatUserList = [
     lastMessage: "¿Podemos coordinar una llamada?",
     lastMessageDate: "2024-02-11",
     unreadMessages: 2,
-    image: "https://i.pravatar.cc/150",
+    image: "https://i.pravatar.cc/150?img=5",
   },
 ];
 
