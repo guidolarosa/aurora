@@ -1,17 +1,18 @@
-
 import { Eye, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import { Card, CardHeader, CardContent, CardFooter } from "../ui/card";
 import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
 import CircularFlag from "./CircularFlag";
-const ForumEntryListItem = ({ item }: { item: any }) => {
+import { ForumEntry } from "@/types/forumEntry";
+
+const ForumEntryListItem = ({ item }: { item: ForumEntry }) => {
   return (
     <Link href={`/forum/${item.id}`} className="block w-full">
       <Card key={item.id}>
         <CardHeader>
           <div className="flex gap-3 items-center">
-          <CircularFlag />
+            <CircularFlag />
             <div className="flex gap-0 flex-col justify-start">
               <h2>{item.title}</h2>
               <div className="flex gap-1 items-center">
@@ -22,7 +23,7 @@ const ForumEntryListItem = ({ item }: { item: any }) => {
                 <span className="text-xs text-stone-500">
                   {formatDistanceToNow(new Date(item.lastActivity), {
                     addSuffix: true,
-                    locale: es
+                    locale: es,
                   })}
                 </span>
               </div>
