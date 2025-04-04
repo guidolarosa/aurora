@@ -104,10 +104,10 @@ const ChatPage = () => {
                       >
                         <div
                           className={clsx(
-                            "w-3 h-3 absolute -bottom-1.5 bg-amber-200 rotate-45",
+                            "w-3 h-3 absolute  bg-amber-200 rotate-45",
                             message.sender.id === "1"
-                              ? "right-3 bg-blue-50"
-                              : "left-3 bg-blue-500"
+                              ? "right-3 bg-blue-50 -bottom-1.5"
+                              : "left-4 bg-blue-500 -top-1.5"
                           )}
                         ></div>
                         <p className="text-sm">{message.content}</p>

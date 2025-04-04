@@ -1,4 +1,3 @@
-"use client";
 
 import AppSidebar from "@/components/custom/Sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
@@ -6,6 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import newsItems from "../../mocks/news";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Aurora | Noticias",
+  description: "Noticias de la comunidad",
+};
 
 export default function NewsPage() {
   return (
@@ -14,7 +19,6 @@ export default function NewsPage() {
         <AppSidebar />
         <div className="flex ml-64 p-10 flex-col gap-4">
           <h1 className="text-2xl font-bold">Noticias</h1>
-          
           <div className="grid grid-cols-3 gap-6">
             {newsItems.map((news) => (
               <Link href={`/news/${news.id}`} key={news.id}>
@@ -35,7 +39,7 @@ export default function NewsPage() {
                     <div className="flex items-center gap-2 mt-4">
                       <div className="relative w-8 h-8">
                         <Image
-                          src={'https://i.pravatar.cc/150?img=1'}
+                          src={`https://i.pravatar.cc/150?img=${news.author.id}`}
                           alt={news.author.name}
                           fill
                           className="rounded-full object-cover"

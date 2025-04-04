@@ -14,6 +14,13 @@ import { es } from "date-fns/locale";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import clsx from "clsx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Aurora | Votaciones",
+  description: "Votaciones de la comunidad",
+};
+
 
 const VotePage = () => {
   const calculatePercentage = (yes: number, no: number) => {

@@ -5,6 +5,12 @@ import Image from "next/image";
 import { FileText, Video, Link as LinkIcon, FileImage, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Aurora | Documentos",
+  description: "Documentos de la comunidad",
+};
 
 const DocumentsPage = () => {
   const getTypeIcon = (type: string) => {

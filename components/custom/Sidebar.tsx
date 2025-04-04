@@ -34,9 +34,12 @@ const AppSidebar = () => {
   return (
     <Sidebar>
       <SidebarHeader>
-        <div className="flex items-center justify-center gap-2 pt-8">
-          <CircularFlag />
-          <h1 className={clsx(archivoBlack.className, "text-xl text-stone-700 text-center")}>AURORA</h1>
+        <div className="flex items-center justify-center gap-2 pt-8 flex-col text-center">
+          <div className="flex items-center gap-2">
+            <CircularFlag />
+            <h1 className={clsx(archivoBlack.className, "text-xl text-white text-center")}>AURORA</h1>
+          </div>
+          <span className="text-xs text-white/70">Principios y Valores</span>
         </div>
       </SidebarHeader>
       <SidebarContent>
@@ -46,8 +49,8 @@ const AppSidebar = () => {
               <SidebarGroupLabel>{item.label}</SidebarGroupLabel>
               <SidebarMenu>
               {item.links.map((link) => (
-                <SidebarMenuItem key={link.title} className={clsx(pathname === link.url && "bg-stone-200 font-semibold not:hover:bg-stone-500 rounded-md")}>
-                  <SidebarMenuButton asChild>
+                <SidebarMenuItem key={link.title} className={clsx(pathname === link.url && "bg-blue-600 font-semibold not:hover:bg-blue-900 rounded-md transition-all")}>
+                  <SidebarMenuButton asChild className="transition-all">
                     <a href={link.url}>
                       <link.icon />
                       <span>{link.title}</span>
@@ -61,7 +64,7 @@ const AppSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className="flex items-center gap-3 justify-center text-stone-500 text-xl py-2">
+        <div className="flex items-center gap-3 justify-center text-white text-xl py-2">
           <IoLogoFacebook />
           <IoLogoInstagram />
           <FaXTwitter />
