@@ -10,5 +10,6 @@ export type FullUser = {
   lastname: string;
   password: string;
   uuid: string;
+  email: string;
 };
 

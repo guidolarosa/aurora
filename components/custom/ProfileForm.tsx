@@ -1,5 +1,4 @@
-
-'use client';
+"use client";
 
 import provinces from "@/mocks/provinces";
 import {
@@ -19,12 +18,13 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-  Form
+  Form,
 } from "../ui/form";
 import { Input } from "../ui/input";
 import userProfile from "@/mocks/user_profile";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { FullUser } from "@/types/user";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -53,12 +53,22 @@ const formSchema = z.object({
   }),
 });
 
-const ProfileForm = () => {
+const ProfileForm = ({ userData }: { userData: FullUser }) => {
+  console.log(userData);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: userProfile,
+    defaultValues: {
+      ...userProfile,
+      name: userData.name,
+      lastName: userData.lastname,
+      email: userData.email,
+    },
   });
 
+  const {
+    formState: { isValid, isDirty },
+  } = form;
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
@@ -72,22 +82,6 @@ const ProfileForm = () => {
         className="grid-cols-2 grid gap-4"
       >
         <div className="flex flex-col gap-4">
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nombre de usuario</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Ingresa tu nombre de usuario..."
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <FormField
             control={form.control}
             name="name"
@@ -203,7 +197,7 @@ const ProfileForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-fit">
+          <Button type="submit" className="w-fit" disabled={(!isValid || !isDirty)}>
             <SaveIcon className="w-4 h-4" />
             Guardar cambios
           </Button>
