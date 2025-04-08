@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import UserName from "@/components/custom/UserName";
 
 export const metadata: Metadata = {
   title: "Aurora | Inicio",
@@ -23,7 +24,7 @@ export default function Home() {
         <AppSidebar />
         <div className="flex h-screen bg-white ml-64 p-10 flex-col">
           <h1 className="text-3xl font-bold mb-6 w">
-            ¡Bienvenidos, Compañeros!
+            <UserName />
           </h1>
           <div className="grid grid-cols-2 gap-4 w-full">
             <Link

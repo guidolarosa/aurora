@@ -4,3 +4,11 @@ export type User = {
   avatar: string;
 };
 
+export type FullUser = {
+  id: string;
+  name: string;
+  lastname: string;
+  password: string;
+  uuid: string;
+};
+
