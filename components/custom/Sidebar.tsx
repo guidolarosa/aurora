@@ -34,7 +34,7 @@ const AppSidebar = () => {
   return (
     <Sidebar>
       <SidebarHeader>
-        <div className="flex items-center justify-center gap-2 pt-8 flex-col text-center">
+        <div className="flex items-center justify-center gap-2 pt-4 flex-col text-center">
           <div className="flex items-center gap-2">
             <CircularFlag />
             <h1 className={clsx(archivoBlack.className, "text-xl text-white text-center")}>AURORA</h1>

@@ -2,7 +2,7 @@ import AppSidebar from "@/components/custom/Sidebar";
 import { CardContent } from "@/components/ui/card";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
-import chatUserList from "../../mocks/chat_user_list";
+import chatUserList from "../../../mocks/chat_user_list";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";

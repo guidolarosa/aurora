@@ -4,7 +4,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import newsItems from "../../mocks/news";
+import newsItems from "../../../mocks/news";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

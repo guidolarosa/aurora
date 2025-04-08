@@ -15,37 +15,37 @@ const items = [
     links: [
       {
         title: "Inicio",
-        url: "/",
+        url: "/dashboard",
         icon: HomeIcon,
       },
       {
         title: "Noticias",
-        url: "/news",
+        url: "/dashboard/news",
         icon: Newspaper,
       },
       {
         title: "Foros",
-        url: "/forum",
+        url: "/dashboard/forum",
         icon: MessagesSquare,
       },
       {
         title: "Votaciones",
-        url: "/vote",
+        url: "/dashboard/vote",
         icon: Vote,
       },
       {
         title: "Chat",
-        url: "/chat",
+        url: "/dashboard/chat",
         icon: MessageSquareMore,
       },
       {
         title: "Calendario",
-        url: "/calendar",
+        url: "/dashboard/calendar",
         icon: Calendar,
       },
       {
         title: "Documentos",
-        url: "/documents",
+        url: "/dashboard/documents",
         icon: File,
       },
     ]
@@ -55,7 +55,7 @@ const items = [
     links: [
       {
         title: "Perfil",
-        url: "/profile",
+        url: "/dashboard/profile",
         icon: User,
       },
     ]
