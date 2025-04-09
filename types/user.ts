@@ -11,5 +11,6 @@ export type FullUser = {
   password: string;
   uuid: string;
   email: string;
+  avatar_url?: string;
 };
 

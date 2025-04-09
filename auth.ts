@@ -31,7 +31,6 @@ export const { auth, signIn, signOut } = NextAuth({
         if (parsedCredentials.success) {
           const { email, password } = parsedCredentials.data;
           const user : FullUser | undefined = await getUser(email);
-          console.log(user)
           if (!user) return null;
           const passwordsMatch = await bcrypt.compare(password, user.password);
 
@@ -48,11 +47,13 @@ export const { auth, signIn, signOut } = NextAuth({
     jwt({ token, user } : any) {
       if (user) { // User is available during sign-in
         token.lastname = user.lastname
+        token.avatar_url = user.avatar_url
       }
       return token
     },
     session({ session, token } : any) {
       session.user.lastname = token.lastname
+      session.user.avatar_url = token.avatar_url
       return session
     },
   }

@@ -1,7 +1,10 @@
 const userProfile = {
+  name: null,
+  lastName: null,
+  email: null,
   phone: null,
-  city: null,
   address: null,
+  city: null,
   state: null,
 };
 

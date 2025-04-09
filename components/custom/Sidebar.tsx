@@ -22,6 +22,7 @@ import { usePathname } from "next/navigation";
 import { Archivo_Black } from "next/font/google";
 import clsx from "clsx";
 import CircularFlag from "@/components/custom/CircularFlag";
+import efemeridesPeronistas from "@/mocks/ephemeris";
 
 const archivoBlack = Archivo_Black({
   weight: "400",
@@ -30,6 +31,22 @@ const archivoBlack = Archivo_Black({
 
 const AppSidebar = () => {
   const pathname = usePathname();
+
+  const getTodayEphemeris = () => {
+    const today = new Date();
+    const todayDay = String(today.getDay() + 1);
+    const todayMonth = String(today.getMonth() + 1);
+
+    const filteredEphemeris = efemeridesPeronistas.filter((ephemeris) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const [_, month, day] = ephemeris.fecha.split('-');
+      if (todayDay === day && todayMonth === month) {
+        return ephemeris
+      }
+    });
+
+    return filteredEphemeris;
+  }
 
   return (
     <Sidebar>
@@ -54,6 +71,9 @@ const AppSidebar = () => {
                     <a href={link.url}>
                       <link.icon />
                       <span>{link.title}</span>
+                      {link.title === 'Chat' && (
+                        <span className="ml-auto px-1 py-0.5 min-w-8 text-center bg-amber-500 rounded-full text-amber-900 font-semibold text-xs">1</span>
+                      )}
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -64,6 +84,15 @@ const AppSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
+        <ul className="flex flex-col gap-2">
+          {getTodayEphemeris().map((ephemeris) => (
+            <li key={ephemeris.titulo} className="bg-blue-50 rounded-lg py-2 px-3 text-blue-950 shadow pb-3">
+              <span className="text-stone-500 text-xs leading-5 block">{ephemeris.fecha}</span>
+              <span className="text-stone-950 text-sm mb-1 leading-5 inline-block font-medium">{ephemeris.titulo}</span>
+              <span className="text-xs block text-stone-600">{ephemeris.descripcion}</span>
+            </li>
+          ))}
+        </ul>
         <div className="flex items-center gap-3 justify-center text-white text-xl py-2">
           <IoLogoFacebook />
           <IoLogoInstagram />

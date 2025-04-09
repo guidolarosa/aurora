@@ -24,8 +24,8 @@ export default function LoginForm() {
   return (
     <form action={formAction} className="h-screen flex items-center justify-center">
       <div className="flex-1 rounded-lg px-6 pb-4 pt-8 max-w-md">
-        <h1 className={`mb-3 text-2xl`}>
-          Por favor ingresá tus credenciales
+        <h1 className={`mb-3 text-2xl text-center`}>
+          Ingresá tus credenciales
         </h1>
         <div className="w-full">
           <div>
@@ -52,7 +52,7 @@ export default function LoginForm() {
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
               htmlFor="password"
             >
-              Password
+              Contraseña
             </label>
             <div className="relative">
               <Input
@@ -71,7 +71,7 @@ export default function LoginForm() {
         <input type="hidden" name="redirectTo" value={callbackUrl} />
         <div className="flex justify-between items-center w-full mt-8">
           <Button aria-disabled={isPending}>
-            Log in <ArrowRight className="ml-auto h-5 w-5 text-gray-50" />
+            Ingresar <ArrowRight className="ml-auto h-5 w-5 text-gray-50" />
           </Button>
           <Link className={buttonVariants({variant: "link"})} href="/sign-up"> Aún no estoy registrado</Link>
          

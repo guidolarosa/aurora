@@ -131,4 +131,8 @@
   strong {
     @apply text-base font-semibold;
   }
+
+  .styled-link {
+    @apply text-blue-500 hover:underline;
+  }
 }
