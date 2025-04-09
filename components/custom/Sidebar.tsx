@@ -72,7 +72,7 @@ const AppSidebar = () => {
                       <link.icon />
                       <span>{link.title}</span>
                       {link.title === 'Chat' && (
-                        <span className="ml-auto px-1 py-0.5 min-w-8 text-center bg-amber-500 rounded-full text-amber-900 font-semibold text-xs">1</span>
+                        <span className="ml-auto px-1 py-0.5 min-w-8 text-center bg-amber-400 rounded-full text-amber-900 font-semibold text-xs">1</span>
                       )}
                     </a>
                   </SidebarMenuButton>

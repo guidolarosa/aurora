@@ -1,8 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AppSidebar from "@/components/custom/Sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
 import { ARTICLES, CATEGORIES_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch } from "@/sanity/lib/fetch";
@@ -17,8 +15,7 @@ export const metadata: Metadata = {
   description: "Noticias de la comunidad",
 };
 
-export default async function NewsPage(props) {
-
+export default async function NewsPage(props: any) {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -36,7 +33,7 @@ export default async function NewsPage(props) {
       dateFrom: null,
       dateTo: null,
       searchParam: null,
-      category: await searchParams.category || null
+      category: (await searchParams.category) || null,
     },
   });
 
@@ -64,13 +61,16 @@ export default async function NewsPage(props) {
                 <CategorySelect categories={categories} />
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 col-span-4">
-              <div className="col-span-2">
+            <div className="grid grid-cols-12 w-full gap-6 col-span-4">
+              <div className="col-span-6">
                 <ArticleThumbnail article={articles[0]} />
               </div>
-              <div className="col-span-1 flex flex-col gap-4">
-                {articles.slice(1,4).map((article) => (
-                  <ArticleThumbnail article={article} key={article._id}/>
+              <div className="col-span-6 gap-4 grid grid-cols-2">
+                {articles.slice(1, 4).map((article) => (
+                  <ArticleThumbnail
+                    article={article}
+                    key={article._id}
+                  />
                 ))}
               </div>
             </div>

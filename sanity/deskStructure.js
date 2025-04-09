@@ -1,4 +1,4 @@
-import { HomeIcon, LockIcon } from "@sanity/icons";
+import { HomeIcon } from "@sanity/icons";
 
 export const myStructure = (S) =>
   S.list()
