@@ -56,7 +56,7 @@ const AppSidebar = () => {
             <CircularFlag />
             <h1 className={clsx(archivoBlack.className, "text-xl text-white text-center")}>AURORA</h1>
           </div>
-          <span className="text-xs text-white/70">Principios y Valores</span>
+          <span className="text-xs text-white/70">Movimiento Nacional Justicialista</span>
         </div>
       </SidebarHeader>
       <SidebarContent>

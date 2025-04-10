@@ -21,7 +21,6 @@ import {
   Form,
 } from "../ui/form";
 import { Input } from "../ui/input";
-import userProfile from "@/mocks/user_profile";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { FullUser } from "@/types/user";
@@ -55,7 +54,6 @@ const ProfileForm = ({ userData }: { userData: FullUser }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      ...userProfile,
       name: userData.name,
       lastName: userData.lastname,
       email: userData.email,

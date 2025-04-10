@@ -132,6 +132,10 @@
     @apply text-base font-semibold;
   }
 
+  label {
+    @apply mt-5 block text-xs font-medium text-gray-900;
+  }
+
   .styled-link {
     @apply text-blue-500 hover:underline;
   }
