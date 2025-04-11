@@ -3,11 +3,18 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Form, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import RichTextEditor from "@/components/custom/RichTextEditor";
-import { Button } from "../ui/button";
-import supabase from "@/app/lib/client";
+import { Button } from "../../ui/button";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/utils/supabase/client";
 
 const formSchema = z.object({
   title: z
@@ -22,17 +29,23 @@ const formSchema = z.object({
 });
 
 const VoteForm = () => {
+  const { push } = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+  const supabase = createClient();
 
   const onSubmit = async (e: { title: string; description: string }) => {
     const { data, error, status } = await supabase.from("votes").insert([
       {
         title: e.title,
         description: e.description,
-      }
+      },
     ]);
+
+    if (!error) {
+      push("/dashboard/vote");
+    }
     console.log(data, error, status);
   };
 
@@ -45,7 +58,12 @@ const VoteForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Título</FormLabel>
-              <Input placeholder="Título de la votación..." {...field}></Input>
+              <FormControl>
+                <Input
+                  placeholder="Título de la votación..."
+                  {...field}
+                ></Input>
+              </FormControl>
             </FormItem>
           )}
         ></FormField>

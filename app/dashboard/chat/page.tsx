@@ -10,7 +10,8 @@ import { Metadata } from "next";
 import { Input } from "@/components/ui/input";
 import peronistChat from "@/mocks/chat";
 import clsx from "clsx";
-import { SendHorizontal } from "lucide-react";
+import { MessageSquarePlus, Search, SendHorizontal } from "lucide-react";
+import { Button, buttonVariants } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Aurora | Chat",
 };
@@ -24,6 +25,21 @@ const ChatPage = () => {
           <div className="grid grid-cols-12 w-full h-full">
             <div className="col-span-4 flex flex-col gap-4 h-full bg-stone-100">
               <div className="h-full border rounded-l-md overflow-hidden">
+                <div className="bg-white p-2 flex items-center border-b gap-2">
+                  <div className="relative w-full">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500" />
+                    <Input
+                      type="text"
+                      placeholder="Buscar compañeros..."
+                      className="w-full pl-9 pr-4 py-2 rounded-md border border-stone-200 focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent max-w-96"
+                    />
+                  </div>
+                  <div>
+                    <Button className={buttonVariants({variant: "outline"})}>
+                      <MessageSquarePlus className="text-stone-800"/>
+                    </Button>
+                  </div>
+                </div>
                 <ul className="flex flex-col bg-white">
                   {chatUserList.map((user) => (
                     <li

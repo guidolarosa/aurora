@@ -3,11 +3,8 @@ export interface Proposal {
   status: string,
   category: string,
   title: string,
-  createdAt: string,
-  endsAt: string,
+  created_at: string,
   description: string,
-  votes: {
-    yes: number,
-    no: number,
-  }
+  positive_votes: number,
+  negative_votes: number,
 }

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select";
 import { SaveIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import {
   FormField,
   FormItem,
@@ -19,8 +19,8 @@ import {
   FormControl,
   FormMessage,
   Form,
-} from "../ui/form";
-import { Input } from "../ui/input";
+} from "../../ui/form";
+import { Input } from "../../ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { FullUser } from "@/types/user";

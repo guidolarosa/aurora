@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { auth } from "@/auth"
+
+import { createClient } from "@/utils/supabase/client";
+
 
 const UserName = async () => {
-  const session : any = await auth();
+  const supabase = createClient();
+  const session : any = await supabase.auth.getSession();
   if (!session?.user) return null;
 
   return (

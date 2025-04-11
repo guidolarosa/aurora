@@ -13,7 +13,7 @@ const ArticleThumbnail = ({
 }) => {
   return (
     <Link
-      href={`/news/${article._id}`}
+      href={`/dashboard/news/${article.slug.current}`}
       key={article._id}
     >
       <Card className="hover:shadow-lg transition-shadow p-0">

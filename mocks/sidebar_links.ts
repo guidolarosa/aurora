@@ -7,6 +7,7 @@ import {
   Newspaper,
   File,
   HomeIcon,
+  Users,
 } from "lucide-react";
 
 const items = [
@@ -47,6 +48,11 @@ const items = [
         title: "Documentos",
         url: "/dashboard/documents",
         icon: File,
+      },
+      {
+        title: "Compañeros",
+        url: "/dashboard/companions",
+        icon: Users,
       },
     ]
   },

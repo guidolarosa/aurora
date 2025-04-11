@@ -5,7 +5,7 @@ import CategoryCard from "@/components/custom/CategoryCard";
 import ActiveMembersCard from "@/components/custom/ActiveMembersCard";
 import EntryList from "@/components/custom/EntryList";
 import { Metadata } from "next";
-import { Button, buttonVariants } from "@/components/ui/button";
+import {  buttonVariants } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 

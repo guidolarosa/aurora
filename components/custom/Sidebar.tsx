@@ -66,7 +66,7 @@ const AppSidebar = () => {
               <SidebarGroupLabel>{item.label}</SidebarGroupLabel>
               <SidebarMenu>
               {item.links.map((link) => (
-                <SidebarMenuItem key={link.title} className={clsx(pathname === link.url && "bg-blue-600 font-semibold not:hover:bg-blue-900 rounded-md transition-all")}>
+                <SidebarMenuItem key={link.title} className={clsx(pathname === link.url && "current bg-blue-600 font-semibold rounded-md transition-all")}>
                   <SidebarMenuButton asChild className="transition-all">
                     <a href={link.url}>
                       <link.icon />

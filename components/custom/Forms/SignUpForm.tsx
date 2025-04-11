@@ -9,16 +9,16 @@ import {
 } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useActionState } from "react";
-import { authenticate } from "@/app/lib/actions";
+import { signup } from "@/app/lib/actions";
 import { useSearchParams } from "next/navigation";
-import { Input } from "../ui/input";
+import { Input } from "../../ui/input";
 import Link from "next/link";
 
 export default function SignUpForm() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
   const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
+    signup,
     undefined
   );
 
@@ -40,7 +40,7 @@ export default function SignUpForm() {
             <div className="relative">
               <Input
                 className="pl-10"
-                id="email"
+                id="name"
                 type="string"
                 name="name"
                 placeholder="Ingresá tu nombre..."
@@ -142,12 +142,12 @@ export default function SignUpForm() {
           aria-live="polite"
           aria-atomic="true"
         >
-          {errorMessage && (
+          {/* {errorMessage && (
             <>
               <FileWarning className="h-5 w-5 text-red-500" />
               <p className="text-sm text-red-500">{errorMessage}</p>
             </>
-          )}
+          )} */}
         </div>
       </div>
     </form>

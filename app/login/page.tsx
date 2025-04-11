@@ -2,7 +2,7 @@ import clsx from "clsx";
 import CircularFlag from "@/components/custom/CircularFlag";
 import { Archivo_Black } from "next/font/google";
 import { Suspense } from "react";
-import LoginForm from "@/components/custom/LoginForm";
+import LoginForm from "@/components/custom/Forms/LoginForm";
 
 const archivoBlack = Archivo_Black({
   weight: "400",

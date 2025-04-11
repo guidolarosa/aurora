@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import Providers from "@/components/custom/Providers";
+import Providers from "@/components/custom/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Aurora",
-  description: "Aurora es una plataforma de modelada a partir de los principios del justicialismo y el nacionalismo de inclusión.",
+  description:
+    "Aurora es una plataforma de modelada a partir de los principios del justicialismo y el nacionalismo de inclusión.",
 };
 
 export default function RootLayout({
@@ -24,13 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        {/* <Providers>
-        </Providers> */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

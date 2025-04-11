@@ -12,7 +12,8 @@ import {
 } from "../ui/card";
 import { Proposal } from "@/types/proposal";
 import { calculatePercentage } from "@/utils/utils";
-import { Progress } from '@/components/ui/progress'
+import { Progress } from "@/components/ui/progress";
+import { PortableText } from "next-sanity";
 
 const ProposalCard = ({ proposal }: { proposal: Proposal }) => {
   return (
@@ -27,7 +28,7 @@ const ProposalCard = ({ proposal }: { proposal: Proposal }) => {
                 : "bg-stone-200"
             )}
           >
-            {proposal.status}
+            Activo
           </div>
           <div
             className={clsx(
@@ -41,40 +42,49 @@ const ProposalCard = ({ proposal }: { proposal: Proposal }) => {
         <CardDescription className="flex justify-between truncate">
           <span className="text-xs truncate">
             Creada{" "}
-            {formatDistanceToNow(new Date(proposal.createdAt), {
+            {formatDistanceToNow(new Date(proposal.created_at), {
               addSuffix: true,
               locale: es,
             })}
           </span>
-          <span className="text-xs truncate">
+          {/* <span className="text-xs truncate">
             Termina{" "}
             {formatDistanceToNow(new Date(proposal.endsAt), {
               addSuffix: true,
               locale: es,
             })}
-          </span>
+          </span> */}
         </CardDescription>
       </CardHeader>
       <CardContent className="min-h-unset">
         <div className="flex flex-col gap-4">
-          <p className="text-sm text-stone-500 line-clamp-3 min-h-16">
-            {proposal.description}
-          </p>
+          <div className="text-sm text-stone-500 line-clamp-3 min-h-16">
+            <PortableText value={JSON.parse(proposal.description)} />
+          </div>
         </div>
         <div className="space-y-2 mt-4 border-t border-b -mx-6 px-6 py-4">
           <div className="flex justify-between text-sm">
-            <span>Yes: {proposal.votes.yes}</span>
-            <span>No: {proposal.votes.no}</span>
+            <span>Yes: {proposal.positive_votes}</span>
+            <span>No: {proposal.negative_votes}</span>
           </div>
           <Progress
-            value={calculatePercentage(proposal.votes.yes, proposal.votes.no)}
+            value={calculatePercentage(
+              proposal.positive_votes,
+              proposal.negative_votes
+            )}
             className="h-2"
           />
           <div className="flex justify-between text-xs text-muted-foreground">
             <span>
-              {calculatePercentage(proposal.votes.yes, proposal.votes.no)}%
+              {calculatePercentage(
+                proposal.positive_votes,
+                proposal.negative_votes
+              )}
+              %
             </span>
-            <span>Total votes: {proposal.votes.yes + proposal.votes.no}</span>
+            <span>
+              Total votes: {proposal.positive_votes + proposal.negative_votes}
+            </span>
           </div>
         </div>
       </CardContent>

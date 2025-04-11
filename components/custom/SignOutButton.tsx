@@ -1,17 +1,19 @@
 import { PowerIcon } from "lucide-react";
 
-import { signOut } from "@/auth";
-
 import { buttonVariants } from "../ui/button";
 import { Button } from "../ui/button";
 import clsx from "clsx";
+import { redirect } from "next/navigation";
+import { createClient } from "@/utils/supabase/client";
 
 const SignOutButton = () => {
+  const supabase = createClient();
   return (
     <form
       action={async () => {
         "use server"
-        await signOut({ redirectTo: "/" });
+        await supabase.auth.signOut();
+        redirect('/login')
       }}
     >
       <Button className={clsx(buttonVariants({ variant: "destructive" }), 'cursor-pointer')}>
