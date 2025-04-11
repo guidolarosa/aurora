@@ -1,9 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import {
   AtSignIcon,
   KeyIcon,
-  FileWarning,
   ArrowRight,
   UserIcon,
 } from "lucide-react";
@@ -17,8 +17,10 @@ import Link from "next/link";
 export default function SignUpForm() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+  
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [errorMessage, formAction, isPending] = useActionState(
-    signup,
+    signup as any,
     undefined
   );
 

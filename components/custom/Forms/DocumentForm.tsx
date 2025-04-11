@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -94,7 +95,7 @@ const DocumentForm = () => {
   });
   
   const supabase = createClient();
-  const onSubmit = async (data: DocumentForm) => {
+  const onSubmit: any = async (data: DocumentForm) => {
     const {
       data: { user },
     }: any = await supabase.auth.getUser();
