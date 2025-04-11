@@ -1,3 +1,5 @@
+'use client'
+
 import { PowerIcon } from "lucide-react";
 
 import { buttonVariants } from "../ui/button";
@@ -8,19 +10,21 @@ import { createClient } from "@/utils/supabase/client";
 
 const SignOutButton = () => {
   const supabase = createClient();
+  const logout = () => {
+    supabase.auth.signOut();
+    redirect("/login");
+  };
   return (
-    <form
-      action={async () => {
-        "use server"
-        await supabase.auth.signOut();
-        redirect('/login')
-      }}
+    <Button
+      className={clsx(
+        buttonVariants({ variant: "destructive" }),
+        "cursor-pointer"
+      )}
+      onClick={logout}
     >
-      <Button className={clsx(buttonVariants({ variant: "destructive" }), 'cursor-pointer')}>
-        <PowerIcon className="w-6" />
-        <div className="hidden md:block">Cerrar Sesión</div>
-      </Button>
-    </form>
+      <PowerIcon className="w-6" />
+      <div className="hidden md:block">Cerrar Sesión</div>
+    </Button>
   );
 };
 
